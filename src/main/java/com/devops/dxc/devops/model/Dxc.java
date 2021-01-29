@@ -32,7 +32,7 @@ public class Dxc implements Serializable {
     }
 
     public int getSaldo() {
-        return saldo;
+        return (ahorro-getDxc());
     }
 
     public void setSaldo(int saldo) {
