@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(path = "/rest/msdxc")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class RestData {
 
     private final static Logger LOGGER = Logger.getLogger("devops.subnivel.Control");
