@@ -45,7 +45,7 @@ public class Util {
     public static int getUf() {
 
         LocalDate localDate = LocalDate.now();
-        String fecha = localDate.getDayOfMonth() + "-" + localDate.getMonthValue() + "-" + localDate.getYear();
+        String fecha = String.format("%02d", localDate.getDayOfMonth()) + "-" + String.format("%02d", localDate.getMonthValue()) + "-" + localDate.getYear();
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<UfResponse> ufEntity = restTemplate.getForEntity("https://mindicador.cl/api/uf/" + fecha, UfResponse.class);
         return (int) Math.round(Double.parseDouble(ufEntity.getBody().getSerie().get(0).toDomain().getValor()));
