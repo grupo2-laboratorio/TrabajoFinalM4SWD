@@ -52,6 +52,23 @@ public class Util {
 
     }
 
+    public static int getImpuesto(int sueldo, int ahorro) {
+        int retiro = getDxc(ahorro,sueldo);
+        if (sueldo <= 1500000){
+            return (int) (retiro * 0);
+        } else if (sueldo > 1500000 && sueldo <= 2500000){
+            return (int) (retiro * 0.0452);
+        } else if (sueldo >2500000 && sueldo <= 3000000){
+            return (int) (retiro * 0.0709);
+        } else if (sueldo >3000000 && sueldo <= 4000000){
+            return (int) (retiro * 0.1062);
+        } else  if (sueldo> 4000000 && sueldo <= 6000000){
+            return (int) (retiro * 0.1557);
+        } else if (sueldo > 6000000){
+            return (int) (retiro * 0.2748);
+        } else return 0;
+    }
+
     @lombok.Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
