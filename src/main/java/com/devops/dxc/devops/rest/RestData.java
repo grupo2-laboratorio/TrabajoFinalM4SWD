@@ -3,6 +3,7 @@ package com.devops.dxc.devops.rest;
 import com.devops.dxc.devops.model.Dxc;
 import com.devops.dxc.devops.model.Impuesto;
 import com.devops.dxc.devops.model.Saldo;
+import com.devops.dxc.devops.model.Uf;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,9 +47,20 @@ public class RestData {
     public @ResponseBody
     Impuesto getImpuesto(@RequestParam(name = "sueldo") String sueldo, @RequestParam(name = "ahorro") String ahorro) {
 
-        LOGGER.log(Level.INFO, "< Trabajo DevOps - SALDO > <Consultado Diez por ciento>");
+        LOGGER.log(Level.INFO, "< Trabajo DevOps - IMPUESTO > <Consultado Diez por ciento>");
 
         Impuesto response = new Impuesto(Integer.parseInt(ahorro), Integer.parseInt(sueldo));
         return response;
+    }
+
+
+    @GetMapping(path = "/uf", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    int getUF() {
+
+        LOGGER.log(Level.INFO, "< Trabajo DevOps - UF > <Consultado Diez por ciento>");
+
+        Uf response = new Uf();
+        return response.getUf();
     }
 }
