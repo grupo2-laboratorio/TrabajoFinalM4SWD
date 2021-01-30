@@ -1,6 +1,8 @@
 package com.devops.dxc.devops.rest;
 
 import com.devops.dxc.devops.model.Dxc;
+import com.devops.dxc.devops.model.Impuesto;
+import com.devops.dxc.devops.model.Saldo;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,26 @@ public class RestData {
         LOGGER.log(Level.INFO, "< Trabajo DevOps - DXC > <Consultado Diez por ciento>");
 
         Dxc response = new Dxc(Integer.parseInt(ahorro), Integer.parseInt(sueldo));
+        return response;
+    }
+
+    @GetMapping(path = "/saldo", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    Saldo getSaldo(@RequestParam(name = "sueldo") String sueldo, @RequestParam(name = "ahorro") String ahorro) {
+
+        LOGGER.log(Level.INFO, "< Trabajo DevOps - SALDO > <Consultado Diez por ciento>");
+
+        Saldo response = new Saldo(Integer.parseInt(ahorro), Integer.parseInt(sueldo));
+        return response;
+    }
+
+    @GetMapping(path = "/impuesto", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    Impuesto getImpuesto(@RequestParam(name = "sueldo") String sueldo, @RequestParam(name = "ahorro") String ahorro) {
+
+        LOGGER.log(Level.INFO, "< Trabajo DevOps - SALDO > <Consultado Diez por ciento>");
+
+        Impuesto response = new Impuesto(Integer.parseInt(ahorro), Integer.parseInt(sueldo));
         return response;
     }
 }
