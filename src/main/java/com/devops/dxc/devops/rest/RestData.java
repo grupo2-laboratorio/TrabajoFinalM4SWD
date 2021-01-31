@@ -54,7 +54,6 @@ public class RestData {
 
         LOGGER.log(Level.INFO, "< Trabajo DevOps - UF > <Consultado Diez por ciento>");
 
-        Uf response = new Uf();
-        return response.getUf();
+        return new Uf().getUf();
     }
 }

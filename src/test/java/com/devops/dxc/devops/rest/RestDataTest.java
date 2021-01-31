@@ -1,6 +1,8 @@
 package com.devops.dxc.devops.rest;
 
 import com.devops.dxc.devops.model.Dxc;
+import com.devops.dxc.devops.model.Impuesto;
+import com.devops.dxc.devops.model.Saldo;
 import com.devops.dxc.devops.model.Uf;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,16 +39,16 @@ public class RestDataTest {
     void testSaldoSuccess() {
 
         //given
-        Dxc dxcService = mock(Dxc.class);
-        int dxcResponse = this.getSaldoResponse();
+        Saldo saldoService = mock(Saldo.class);
+        int saldoResponse = this.getSaldoResponse();
 
         //when
-        when(dxcService.getDxc())
-                .thenReturn(dxcResponse);
+        when(saldoService.getSaldo())
+                .thenReturn(saldoResponse);
 
         RestData restData = new RestData();
 
-        var response = restData.getDxc("0", "15000000").getSaldo();
+        var response = restData.getSaldo("0", "15000000").getSaldo();
         var expectedResponse = this.getSaldoViewResponse();
 
         //THEN
@@ -58,16 +60,16 @@ public class RestDataTest {
     void testImpuestoSuccess() {
 
         //given
-        Dxc dxcService = mock(Dxc.class);
-        int dxcResponse = this.getImpuestoResponse();
+        Impuesto impuestoService = mock(Impuesto.class);
+        int impuestoResponse = this.getImpuestoResponse();
 
         //when
-        when(dxcService.getDxc())
-                .thenReturn(dxcResponse);
+        when(impuestoService.getImpuesto())
+                .thenReturn(impuestoResponse);
 
         RestData restData = new RestData();
 
-        var response = restData.getDxc("2000000", "15000000").getImpuesto();
+        var response = restData.getImpuesto("2000000", "15000000").getImpuesto();
         var expectedResponse = this.getImpuestoViewResponse();
 
         //THEN
@@ -86,7 +88,9 @@ public class RestDataTest {
         when(ufService.getUf())
                 .thenReturn(ufResponse);
 
-        var response = ufService.getUf();
+        RestData restData = new RestData();
+
+        var response = restData.getUF();
         var expectedResponse = this.getUfResponse();
 
         //THEN
