@@ -25,14 +25,17 @@ public class Util {
      */
     public static int getDxc(int ahorro, int sueldo) {
         int uf = getUf();
-        if (((ahorro * 0.1) / uf) > 150) {
-            return (int) (150 * uf);
-        } else if ((ahorro * 0.1) <= (35 * uf) && ahorro >= (35 * uf)) {
-            return (int) (35 * uf);
-        } else if (ahorro <= 35 * uf) {
-            return (int) ahorro;
+        int diez = (int) Math.round(ahorro * 0.1);
+
+
+        if (diez > (150 * uf)) {
+            return (150 * uf);
+        } else if (diez <= (150 * uf) && diez >= (35 * uf)) {
+            return diez;
+        } else if (diez <= 35 * uf) {
+            return (35 * uf);
         } else {
-            return (int) (ahorro * 0.1);
+            return 0;
         }
     }
 
@@ -52,19 +55,28 @@ public class Util {
 
     }
 
+
+    /**
+     * Método que obtiene el impuesto asociado al retiro del 10%
+     * tomando en consideracion el salario de la persona que hace el retiro
+     *
+     * @param sueldo
+     * @param ahorro
+     * @return
+     */
     public static int getImpuesto(int sueldo, int ahorro) {
-        int retiro = getDxc(ahorro,sueldo);
-        if (sueldo <= 1500000){
+        int retiro = getDxc(ahorro, sueldo);
+        if (sueldo <= 1500000) {
             return (int) (retiro * 0);
-        } else if (sueldo > 1500000 && sueldo <= 2500000){
+        } else if (sueldo > 1500000 && sueldo <= 2500000) {
             return (int) (retiro * 0.0452);
-        } else if (sueldo >2500000 && sueldo <= 3000000){
+        } else if (sueldo > 2500000 && sueldo <= 3000000) {
             return (int) (retiro * 0.0709);
-        } else if (sueldo >3000000 && sueldo <= 4000000){
+        } else if (sueldo > 3000000 && sueldo <= 4000000) {
             return (int) (retiro * 0.1062);
-        } else  if (sueldo> 4000000 && sueldo <= 6000000){
+        } else if (sueldo > 4000000 && sueldo <= 6000000) {
             return (int) (retiro * 0.1557);
-        } else if (sueldo > 6000000){
+        } else if (sueldo > 6000000) {
             return (int) (retiro * 0.2748);
         } else return 0;
     }

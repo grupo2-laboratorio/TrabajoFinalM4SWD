@@ -32,7 +32,7 @@ public class Dxc implements Serializable {
     }
 
     public int getSaldo() {
-        return (ahorro-getDxc());
+        return (ahorro - getDxc());
     }
 
     public void setSaldo(int saldo) {
@@ -40,7 +40,7 @@ public class Dxc implements Serializable {
     }
 
     public int getImpuesto() {
-        return Util.getImpuesto(sueldo,ahorro);
+        return Util.getImpuesto(sueldo, ahorro);
     }
 
     public void setImpuesto(int impuesto) {

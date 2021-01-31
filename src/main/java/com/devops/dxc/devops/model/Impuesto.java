@@ -28,7 +28,7 @@ public class Impuesto implements Serializable {
 
 
     public int getImpuesto() {
-        return Util.getImpuesto(sueldo,ahorro);
+        return Util.getImpuesto(sueldo, ahorro);
     }
 
     public void setImpuesto(int impuesto) {

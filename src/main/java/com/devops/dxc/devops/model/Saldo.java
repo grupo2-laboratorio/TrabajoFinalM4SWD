@@ -26,7 +26,7 @@ public class Saldo implements Serializable {
     }
 
     public int getSaldo() {
-        return (ahorro-Util.getDxc(ahorro, sueldo));
+        return (ahorro - Util.getDxc(ahorro, sueldo));
     }
 
     public void setSaldo(int saldo) {
