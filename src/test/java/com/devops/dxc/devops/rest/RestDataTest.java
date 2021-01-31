@@ -27,8 +27,8 @@ public class RestDataTest {
 
         RestData restData = new RestData();
 
-        var response = restData.getDxc("0", "8000000").getDxc();
-        var expectedResponse = this.getDxcViewResponse();
+        int response = restData.getDxc("0", "8000000").getDxc();
+        int expectedResponse = this.getDxcViewResponse();
 
         //THEN
         assertEquals(expectedResponse, response);
@@ -48,8 +48,8 @@ public class RestDataTest {
 
         RestData restData = new RestData();
 
-        var response = restData.getSaldo("0", "15000000").getSaldo();
-        var expectedResponse = this.getSaldoViewResponse();
+        int response = restData.getSaldo("0", "15000000").getSaldo();
+        int expectedResponse = this.getSaldoViewResponse();
 
         //THEN
         assertEquals(expectedResponse, response);
@@ -69,8 +69,8 @@ public class RestDataTest {
 
         RestData restData = new RestData();
 
-        var response = restData.getImpuesto("2000000", "15000000").getImpuesto();
-        var expectedResponse = this.getImpuestoViewResponse();
+        int response = restData.getImpuesto("2000000", "15000000").getImpuesto();
+        int expectedResponse = this.getImpuestoViewResponse();
 
         //THEN
         assertEquals(expectedResponse, response);
@@ -90,8 +90,8 @@ public class RestDataTest {
 
         RestData restData = new RestData();
 
-        var response = restData.getUF();
-        var expectedResponse = this.getUfResponse();
+        int response = restData.getUF();
+        int expectedResponse = this.getUfResponse();
 
         //THEN
         assertEquals(expectedResponse, response);
