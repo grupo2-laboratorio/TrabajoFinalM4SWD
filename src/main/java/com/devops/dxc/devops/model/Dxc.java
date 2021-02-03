@@ -14,6 +14,7 @@ public class Dxc implements Serializable {
     private int impuesto;
     private int sueldo;
     private int ahorro;
+    private int uf;
 
     public Dxc(int ahorro, int sueldo) {
         this.ahorro = ahorro;
@@ -62,4 +63,9 @@ public class Dxc implements Serializable {
     public void setAhorro(int ahorro) {
         this.ahorro = ahorro;
     }
+
+    public int getUf() {
+        return Util.getUf();
+    }
+
 }
